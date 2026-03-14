@@ -1,0 +1,123 @@
+/* Global */
+body, html {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  color: #111827;
+  transition: background-color 0.3s, color 0.3s;
+}
+.app-layout.dark {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #3b82f6;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s;
+}
+.sidebar.collapsed {
+  width: 60px;
+}
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 15px;
+}
+.sidebar a:hover {
+  color: #fcd34d;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Buttons */
+button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+button:hover {
+  opacity: 0.9;
+}
+
+/* Inputs */
+input, select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+input:focus, select:focus {
+  border-color: #3b82f6;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Dark mode overrides */
+.app-layout.dark .sidebar {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+.app-layout.dark .main-content {
+  background-color: #111827;
+  color: #f9fafb;
+}
+.app-layout.dark .card {
+  background-color: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.app-layout.dark input, .app-layout.dark select {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar {
+    width: 60px;
+    padding: 15px;
+  }
+  .main-content {
+    padding: 20px;
+  }
+}
